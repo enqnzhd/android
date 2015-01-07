@@ -13,20 +13,37 @@ android {
     }
 
     buildTypes {
+        debug {
+            debuggable true
+            buildConfigField 'boolean', 'LOG', 'true'
+
+            applicationIdSuffix '.debug'
+        }
         release {
-            minifyEnabled false
+            debuggable false
+            buildConfigField 'boolean', 'LOG', 'false'
+
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
     }
 }
 
 dependencies {
+    // Google Play Service ( Stable : 6.5.99 )
+    compile 'com.google.android.gms:play-services:6.5.+'
 
-    compile 'com.google.android.gms:play-services:6.5.87'
-
+    // Android Support Library
     compile 'com.android.support:support-v4:21.0.3'
 
-    wearApp project(':wear')
-
+    // Libraries
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Project - Wear
+    wearApp project(':wear')
 }
