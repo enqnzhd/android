@@ -39,7 +39,10 @@ dependencies {
     compile 'com.google.android.gms:play-services:6.5.+'
 
     // Android Support Library
-    compile 'com.android.support:support-v4:21.0.3'
+    compile 'com.android.support:support-v4:+'
+
+    // Volley
+    compile 'com.mcxiaoke.volley:library:+@aar'
 
     // Libraries
     compile fileTree(dir: 'libs', include: ['*.jar'])

@@ -6,11 +6,12 @@ import com.google.android.gms.analytics.ExceptionReporter;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.StandardExceptionParser;
 import com.google.android.gms.analytics.Tracker;
-import com.interpark.tour.mobile.main.BuildConfig;
-import com.interpark.tour.mobile.main.R;
 
 import java.util.ArrayList;
 import java.util.Collection;
+
+import io.lutics.app.android.BuildConfig;
+import io.lutics.app.android.R;
 
 /**
  * @author Sunny-J

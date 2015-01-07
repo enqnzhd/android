@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">android</string>
+
+    <string name="app_analytics_id"></string>
 </resources>
