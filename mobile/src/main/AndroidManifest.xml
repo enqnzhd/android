@@ -51,7 +51,6 @@
         <!-- Receiver - Google Play Service - GCM -->
         <receiver
             android:name=".receiver.GcmWakefulBroadcastReceiver"
-            android:exported="true"
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
@@ -63,10 +62,13 @@
         <!-- Service - Google Play Service - Analytics -->
         <service android:name="com.google.android.gms.analytics.CampaignTrackingService" />
 
+        <!-- Service - Google Play Service - GCM -->
+        <service android:name=".service.GcmIntentService" />
+
         <!-- Activity - Intro -->
         <activity android:name=".activity.IntroActivity">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

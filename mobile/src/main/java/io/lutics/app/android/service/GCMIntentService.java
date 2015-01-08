@@ -5,8 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
+import android.widget.Toast;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
@@ -40,7 +43,7 @@ public class GcmIntentService extends IntentService {
     ---------------------------------------------------------------------------------- */
 
     @Override
-    protected void onHandleIntent(Intent intent) {
+    protected void onHandleIntent(final Intent intent) {
         // Logging
         Logger.d(LOG_TAG, Thread.currentThread().getStackTrace()[2].getMethodName());
 
@@ -49,6 +52,13 @@ public class GcmIntentService extends IntentService {
         if (!messageType.isEmpty()) {
             switch (messageType) {
                 case GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE: {
+                    new Handler(Looper.getMainLooper()).post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(getApplicationContext(), intent.getExtras().getString("message"), Toast.LENGTH_LONG).show();
+                        }
+                    });
+
                     break;
                 }
 

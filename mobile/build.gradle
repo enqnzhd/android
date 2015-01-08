@@ -16,8 +16,6 @@ android {
         debug {
             debuggable true
             buildConfigField 'boolean', 'LOG', 'true'
-
-            applicationIdSuffix '.debug'
         }
         release {
             debuggable false
@@ -44,9 +42,15 @@ dependencies {
     // Volley
     compile 'com.mcxiaoke.volley:library:+@aar'
 
+    // Realm
+    compile 'io.realm:realm-android:+'
+
     // Libraries
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     // Project - Wear
     wearApp project(':wear')
+
+    // Project - Backend
+    compile project(path: ':backend', configuration: 'android-endpoints')
 }
