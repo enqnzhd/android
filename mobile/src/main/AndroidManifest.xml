@@ -14,10 +14,10 @@
 
     <!-- GCM -->
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    <uses-permission android:name="${applicationId}.permission.C2D_MESSAGE" />
+    <uses-permission android:name="io.lutics.app.android.permission.C2D_MESSAGE" />
 
     <permission
-        android:name="${applicationId}.permission.C2D_MESSAGE"
+        android:name="io.lutics.app.android.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
     <!-- Features -->
@@ -55,7 +55,7 @@
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
 
-                <category android:name="${applicationId}" />
+                <category android:name="io.lutics.app.android" />
             </intent-filter>
         </receiver>
 
@@ -74,8 +74,16 @@
             </intent-filter>
         </activity>
 
-        <!-- Activity - Setting -->
-        <activity android:name=".SettingsActivity" />
+        <!-- Activity - Main -->
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="@string/title_activity_main" />
+
+        <!-- Activity - Settings -->
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".activity.MainActivity" />
     </application>
 
 </manifest>
